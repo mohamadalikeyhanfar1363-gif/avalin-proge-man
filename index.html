@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>پرونده ۰۰۱ | راز کلاس خالی</title>
+
+<style>
+body {
+    background: #101827;
+    color: white;
+    font-family: Tahoma;
+    text-align: center;
+    padding: 25px 12px;
+}
+
+h1 {
+    color: #f5c451;
+}
+
+.box {
+    background: #1e293b;
+    padding: 25px;
+    border-radius: 15px;
+    max-width: 550px;
+    margin: 20px auto;
+}
+
+p {
+    line-height: 2.5;
+}
+
+button {
+    background: #f5c451;
+    color: #101827;
+    padding: 13px 25px;
+    border: none;
+    border-radius: 9px;
+    font-size: 16px;
+    margin: 8px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: white;
+}
+
+.hidden {
+    display: none;
+}
+</style>
+</head>
+
+<body>
+
+<h1>🕵️ پرونده ۰۰۱</h1>
+<h2>راز کلاس خالی</h2>
+
+<div class="box" id="welcome">
+
+<h2>به دنیای کارآگاهی خوش آمدی!</h2>
+
+<p>
+یک فلش مموری مهم از کلاس کامپیوتر ناپدید شده است.
+<br>
+آیا می‌توانی دزد را پیدا کنی؟
+</p>
+
+<button onclick="show('clue')">
+شروع تحقیقات
+</button>
+
+</div>
+
+<div class="box hidden" id="clue">
+
+<h2>🔎 سرنخ اول</h2>
+
+<p>
+ساعت دیواری کلاس روی ۱۰:۱۵ متوقف شده است.
+<br>
+یکی از دانش‌آموزان گفته ساعت ۱۰:۳۰
+از کلاس خارج شده است.
+</p>
+
+<button onclick="show('question')">
+بررسی سرنخ
+</button>
+
+</div>
+
+<div class="box hidden" id="question">
+
+<h2>🧩 معمای اول</h2>
+
+<p>
+آیا ساعت متوقف‌شده می‌تواند زمان واقعی را نشان دهد؟
+</p>
+
+<button onclick="checkAnswer(true)">بله</button>
+
+<button onclick="checkAnswer(false)">خیر</button>
+
+<p id="answerResult"></p>
+
+</div>
+
+<div class="box hidden" id="suspects">
+
+<h2>🕵️ اتاق مظنون‌ها</h2>
+
+<p>
+گزارش ورود مدرسه نشان می‌دهد کارت آرش
+ساعت ۱۰:۲۰ در کلاس کامپیوتر استفاده شده است.
+<br>
+اما او گفته در کتابخانه بوده!
+<br>
+به نظر تو چه کسی مشکوک‌تر است؟
+</p>
+
+<button onclick="checkSuspect('نازنین')">
+نازنین
+</button>
+
+<button onclick="checkSuspect('آرش')">
+آرش
+</button>
+
+<button onclick="checkSuspect('سارا')">
+سارا
+</button>
+
+<p id="suspectResult"></p>
+
+</div>
+
+<div class="box hidden" id="ending">
+
+<h2>🏆 پرونده حل شد!</h2>
+
+<p>
+آفرین کارآگاه!
+<br>
+تو با بررسی ساعت و گزارش ورود،
+تناقض در حرف آرش را پیدا کردی.
+<br>
+آرش مظنون اصلی این پرونده است!
+<br>
+تحقیقات تو موفقیت‌آمیز بود.
+</p>
+
+<h2>⭐ امتیاز: ۱۰۰</h2>
+
+<button onclick="location.reload()">
+شروع دوباره بازی
+</button>
+
+</div>
+
+<script>
+
+function show(id) {
+
+    document.getElementById("welcome").classList.add("hidden");
+    document.getElementById("clue").classList.add("hidden");
+    document.getElementById("question").classList.add("hidden");
+    document.getElementById("suspects").classList.add("hidden");
+    document.getElementById("evidence").classList.add("hidden");
+    document.getElementById("ending").classList.add("hidden");
+
+    document.getElementById(id).classList.remove("hidden");
+}
+
+function checkAnswer(correct) {
+
+    if (correct === false) {
+
+        document.getElementById("answerResult").innerHTML =
+        "آفرین! پاسخ درست است. 🎉";
+
+        setTimeout(function() {
+            show("evidence");
+        }, 1200);
+
+    } else {
+
+        document.getElementById("answerResult").innerHTML =
+        "دوباره فکر کن! ساعت متوقف شده است. 🤔";
+
+    }
+}
+
+function checkSuspect(name) {
+
+    if (name === "آرش") {
+
+        show("ending");
+
+    } else {
+
+        document.getElementById("suspectResult").innerHTML =
+        "این انتخاب هنوز با سرنخ‌ها جور نیست! دوباره بررسی کن. 🔍";
+
+    }
+}
+
+</script>
+<div id="evidence" class="box hidden">
+
+    <h2>📁 مدارک محرمانه</h2>
+
+    <p>کارآگاه عزیز! سه مدرک مهم پیدا شده است.</p>
+
+    <hr>
+
+    <h3>🕒 مدرک اول: ساعت کلاس</h3>
+    <p>ساعت کلاس روی ۱۰:۱۵ متوقف شده است.</p>
+
+    <hr>
+
+    <h3>💳 مدرک دوم: کارت ورود</h3>
+    <p>کارت آرش ساعت ۱۰:۲۰ وارد کلاس شده است.</p>
+
+    <hr>
+
+    <h3>📄 مدرک سوم: گزارش کتابخانه</h3>
+    <p>نام آرش در فهرست حضور کتابخانه ثبت نشده است.</p>
+
+    <button onclick="show('suspects')">
+        بررسی مظنون‌ها 🔍
+    </button>
+
+</div>
+</body>
+</html>
